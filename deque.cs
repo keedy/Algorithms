@@ -13,21 +13,27 @@ namespace AlgorithmsExcise.Algorithms
         T[] Q;
         int head;
         int tail;
-        public bool Full()
+        public bool Full
         {
-            if (head - 1 == tail || (head == 0 && tail == Q.Length - 1))
-                return true;
-            else return false;
+            get
+            {
+                if (head - 1 == tail || (head == 0 && tail == Q.Length - 1))
+                    return true;
+                else return false;
+            }
         }
-        public bool Empty()
+        public bool Empty
         {
-            if (head +1== tail||(head == Q.Length - 1 && tail == 0))
-                return true;
-            else return false;
+            get
+            {
+                if (head + 1 == tail || (head == Q.Length - 1 && tail == 0))
+                    return true;
+                else return false;
+            }
         }
         public void ENQUEUE_FRONT(T x)
         {
-            if (Full()) throw new Exception("upflow");
+            if (Full) throw new Exception("upflow");
             Q[head] = x;
             if (head == 0)
             {
@@ -37,7 +43,7 @@ namespace AlgorithmsExcise.Algorithms
         }
         public void ENQUEUE_BACK(T x)
         {
-            if (Full()) throw new Exception("upflow");
+            if (Full) throw new Exception("upflow");
             Q[tail] = x;
             if (tail == Q.Length - 1)
             {
@@ -47,7 +53,7 @@ namespace AlgorithmsExcise.Algorithms
         }
         public T DEQUEUE_FRONT()
         {
-            if (Empty()) throw new Exception("downflow");
+            if (Empty) throw new Exception("downflow");
             if (head==Q.Length-1)
             {
                 head = 0;
@@ -57,7 +63,7 @@ namespace AlgorithmsExcise.Algorithms
         }
         public T DEQUEUE_BACK()
         {
-            if (Empty()) throw new Exception("downflow");
+            if (Empty) throw new Exception("downflow");
             if (tail==0)
             {
                 tail = Q.Length - 1;
